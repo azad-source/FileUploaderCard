@@ -1,0 +1,35 @@
+.root {
+  display: block;
+  width: fit-content;
+
+  .fileUploader {
+    > *,
+    label {
+      height: 100%;
+    }
+
+    [data-tid='FileUploader__content'] {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      [data-tid='FileUploader__link'] {
+        + * {
+          margin-top: -16px;
+
+          > * {
+            bottom: unset;
+            right: unset;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+}
