@@ -1,11 +1,6 @@
 import styles from './FileUploaderCard.module.scss';
-import cx from 'clsx';
-import React, { createRef } from 'react';
-import {
-  FileUploader,
-  FileUploaderAttachedFile,
-  FileUploaderRef,
-} from '@skbkontur/react-ui';
+import React from 'react';
+import {  FileUploader,  FileUploaderAttachedFile } from '@skbkontur/react-ui';
 
 interface IProps {
   isSizeError?: boolean;
@@ -22,24 +17,16 @@ export const FileUploaderCard: React.FC<IProps> = ({
   cardSize = 140,
   onAttache,
 }) => {
-  const fileUploaderRef = createRef<FileUploaderRef>();
-
-  const handleAttach = (files: FileUploaderAttachedFile[]) => {
-    onAttache(files);
-  };
 
   return (
-    <div className={cx(styles.root, disabled && styles.root_disabled)}>
-      <FileUploader
-        multiple
-        hideFiles
-        accept={accept}
-        disabled={disabled}
-        ref={fileUploaderRef}
-        style={{ width: cardSize, height: cardSize }}
-        className={styles.fileUploader}
-        onAttach={handleAttach}
-      />
-    </div>
+    <FileUploader
+      multiple
+      hideFiles
+      accept={accept}
+      disabled={disabled}
+      style={{ width: cardSize, height: cardSize }}
+      className={styles.root}
+      onAttach={onAttache}
+    />
   );
 };
